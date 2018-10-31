@@ -1,0 +1,24 @@
+{
+  "name": "melissapabst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelissaPabst/savvy-portfolio-MelissaPabst.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelissaPabst/savvy-portfolio-MelissaPabst/issues"
+  },
+  "homepage": "https://github.com/MelissaPabst/savvy-portfolio-MelissaPabst#readme",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "parcel-bundler": "^1.10.3"
+  }
+}
