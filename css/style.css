@@ -19,6 +19,39 @@ img {
     width:80%;
 }    
 
+#navigation li:first-child {
+    background-color: hotpink;
+}
+
+#navigation li:last-child {
+    background-color: magenta;
+}
+
+#navigation li:nth-child(2n) {
+    background-color: aqua;
+}
+
+#navigation > ul > li {
+    background-color: blue;
+}
+
+#navigation li:hover {
+    background-color: rosybrown;
+    font-size: 2em;
+}
+
+.container > h1 {
+    color: orange;
+}
+
+.container > h2 {
+    color: forestgreen;
+}
+
+.container > p {
+    color: white;
+}
+
 .important {
     color: red;
   }
@@ -32,6 +65,7 @@ img {
     max-width: 900px;
     width: 90%;
 }
+
 
 #primary {
   font-family: 'Times New Roman';
