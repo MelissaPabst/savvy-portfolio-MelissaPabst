@@ -49,6 +49,16 @@ img {
     display: inline;
 }
 
+/* for the dropdown menu */
+#navigation .dropdown {
+    display: none;
+}
+
+/* need a sibling selector  */
+#navigation a:hover + .dropdown {
+    display: block;
+}
+
 .container > h1 {
     color: orange;
 }
