@@ -1,0 +1,53 @@
+body {
+    background-color: burlywood;
+}
+
+h1 {
+    color: bisque;
+    font-weight: bold;
+}
+
+p {
+  color: sienna;
+  text-align: left;
+}
+
+img {
+    display: block;
+    margin: 1em auto;
+    max-width: 300px;
+    width:80%;
+}    
+
+.important {
+    color: red;
+  }
+
+.big {
+  font-size: 300%;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+}
+
+#primary {
+  font-family: 'Times New Roman';
+}
+
+#navigation {
+    background-color: pink;
+}
+#header {
+    background-color: blue;
+}
+
+#content {
+    background-color: purple;
+}
+
+#footer {
+    background-color: orchid;
+}
