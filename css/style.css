@@ -1,15 +1,19 @@
 body {
     background-color: burlywood;
+    margin: 0;
 }
 
 h1 {
     color: bisque;
-    font-weight: bold;
+}
+
+h2 {
+    color: forestgreen;
 }
 
 p {
-  color: sienna;
-  text-align: left;
+  color: white;
+  text-align: center;
 }
 
 img {
@@ -17,66 +21,55 @@ img {
     margin: 1em auto;
     max-width: 300px;
     width:80%;
-}    
+}   
 
-/* #navigation li:first-child {
-    background-color: hotpink;
+ul {
+    background-color: pink;
 }
 
-#navigation li:last-child {
-    background-color: magenta;
-}
-
-#navigation li:nth-child(2n) {
-    background-color: aqua;
-}
-
-#navigation > ul > li {
-    background-color: blue;
-}
-
-#navigation li:hover {
-    background-color: rosybrown;
-    font-size: 2em;
-} */
-
-#navigation {
-    background-color: bisque;
-}
-
-/* select all li that are direct descendants of  */
-#navigation > ul > li {
+input[type="radio"]{
     display: inline;
+    margin: 10px 10px;
+    font-size: 1.1em;
+    max-width: 300px;
 }
 
-/* for the dropdown menu */
-#navigation .dropdown {
-    display: none;
+input[type="text"]{
+    display: inline;
+    margin: 10px 0px;
+    font-size: 1.1em;
+    max-width: 300px;
 }
 
-/* need a sibling selector  */
-#navigation a:hover + .dropdown {
-    display: block;
+input[type="email"]{
+    display: inline;
+    margin: 10px 0px;
+    font-size: 1.1em;
+    max-width: 300px;
 }
 
-.container > h1 {
-    color: orange;
+input[type="submit"]{
+    display: inline;
+    margin: 10px 0px;
+    font-size: 1.1em;
+    background-color: orange;
 }
 
-.container > h2 {
-    color: forestgreen;
+input[type="checkbox"]{
+    display: inline;
+    margin: 10px 0px;
+    font-size: 1.1em;
+    max-width: 300px;
 }
 
-.container > p {
-    color: white;
+
+label {
+    font-size: 1.5em;
 }
 
-.important {
-    color: red;
-  }
-
-.big {
-  font-size: 300%;
+select {
+    margin: 10px 0px;
+    font-size: 1.1em;
 }
 
 .container {
@@ -86,21 +79,45 @@ img {
 }
 
 
-#primary {
-  font-family: 'Times New Roman';
-}
-
 #navigation {
     background-color: pink;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
 }
+
+/* select all li that are direct descendants */
+#navigation > ul > li {
+    display: inline;
+    position: relative;
+    padding: 10px;
+}
+
+/* for the dropdown menu */
+#navigation .dropdown {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 28px;
+}
+
+/* need a sibling selector  */
+#navigation a:hover + .dropdown,
+#navigation a + .dropdown:hover { 
+    display: block;
+}
+
 #header {
     background-color: blue;
 }
 
 #content {
     background-color: purple;
+    padding: 20px;
 }
 
 #footer {
     background-color: orchid;
 }
+
