@@ -1,6 +1,12 @@
 body {
     background-color: burlywood;
-    margin: 0;
+    display: grid;
+    grid-template-rows: min-content min-content auto min-content;
+    grid-template-areas: 
+        "navigation"
+        "header"
+        "content"
+        "footer";
 }
 
 h1 {
@@ -82,24 +88,31 @@ select {
 
 #navigation {
     background-color: pink;
-    position: fixed;
+    /* deleted for grid: no more stickiness! */
+    /* position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100vw; */
+    position: sticky;
+    top: 0;     
 }
 
 #navigation > ul {
     display: flex;
-    height: 10vh;
+    /* height: 10vh; */
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
 }
 
 /* select all li that are direct descendants */
 #navigation > ul > li {
     display: inline;
     position: relative;
+    margin: 0 10px;
+
     /* padding: 10px; */
 }
 
@@ -132,3 +145,8 @@ select {
     background-color: orchid;
 }
 
+@media (min-width: 750px) {
+    body {
+        background-color: aquamarine;
+    }
+}
