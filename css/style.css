@@ -159,4 +159,8 @@ select {
             "navigation content"
             "navigation footer";
     }
+
+    #navigation > ul {
+        flex-direction: column;
+    }
 }
