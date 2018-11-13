@@ -88,11 +88,19 @@ select {
     width: 100vw;
 }
 
+#navigation > ul {
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
 /* select all li that are direct descendants */
 #navigation > ul > li {
     display: inline;
     position: relative;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 /* for the dropdown menu */
@@ -108,6 +116,8 @@ select {
 #navigation a + .dropdown:hover { 
     display: block;
 }
+
+
 
 #header {
     background-color: blue;
