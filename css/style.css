@@ -1,6 +1,7 @@
 body {
     background-color: burlywood;
     display: grid;
+    min-height: 100vh;
     grid-template-rows: min-content min-content auto min-content;
     grid-template-areas: 
         "navigation"
@@ -12,6 +13,7 @@ body {
 h1 {
     color: bisque;
     font-family: 'Life Savers', monospace;
+    font-size: 2em;
 }
 
 h2 {
@@ -85,6 +87,22 @@ select {
     width: 90%;
 }
 
+#header {
+    grid-area: header;
+    background-color: blue;
+}
+
+#content {
+    grid-area: content;
+    background-color: purple;
+    padding: 20px;
+}
+
+#footer {
+    grid-area: footer;
+    background-color: orchid;
+}
+
 
 #navigation {
     grid-area: navigation;
@@ -112,7 +130,7 @@ select {
 #navigation > ul > li {
     display: inline;
     position: relative;
-    margin: 0 10px;
+    margin: 10px;
 
     /* padding: 10px; */
 }
@@ -129,24 +147,6 @@ select {
 #navigation a:hover + .dropdown,
 #navigation a + .dropdown:hover { 
     display: block;
-}
-
-
-
-#header {
-    grid-area: header;
-    background-color: blue;
-}
-
-#content {
-    grid-area: content;
-    background-color: purple;
-    padding: 20px;
-}
-
-#footer {
-    grid-area: footer;
-    background-color: orchid;
 }
 
 @media (min-width: 750px) {
