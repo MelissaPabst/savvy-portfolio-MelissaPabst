@@ -1,5 +1,7 @@
 var userName = prompt("WhAt Is yOUr nAmE?");
 
+var title = document.querySelector('h1');
+
 var greetUser = function greetUser() {
 
     //if userName is empty
@@ -10,7 +12,10 @@ var greetUser = function greetUser() {
     } 
     else {
         //else only called in the event we have the username (a non-empty string)
-        alert("Hello, " + userName);
+        //alert("Hello, " + userName);
+        //instead of alert, make greeting appear in h1
+        //object.key.value
+        title.textContent = "Hello, " + userName;
     }
 };
 
