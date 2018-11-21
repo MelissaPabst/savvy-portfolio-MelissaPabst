@@ -15,7 +15,9 @@ var greetUser = function greetUser() {
         //alert("Hello, " + userName);
         //instead of alert, make greeting appear in h1
         //object.key.value
-        title.textContent = title.textContent + ', ' + userName;
+        //title.textContent = "Hello, " + userName;
+        //title.textContent = title.textContent + ', ' + userName;
+        title.textContent += ', ' + userName;
     }
 };
 
