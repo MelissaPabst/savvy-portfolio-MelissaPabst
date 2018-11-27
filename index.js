@@ -1,25 +1,23 @@
-var userName = prompt("WhAt Is yOUr nAmE?");
+import Footer from "./src/Footer";
+import Content from "./src/Content";
+import Header from "./src/Header";
+import Navigation from "./src/Navigation";
 
-var title = document.querySelector('h1');
+// override the html with the footer
+// this line only produces the footer
+// document.body.innerHTML = footer;
+// this line adds the footer to the whole body
+// document.body.innerHTML += footer;
+// or use template literal
 
-var greetUser = function greetUser() {
+// document.body.innterHTML 
+document.querySelector('#root').innerHTML = `
+    ${Navigation}
+    ${Header}
+    ${Content}
+    ${Footer}
+`;
 
-    //if userName is empty
-    if (!userName) {
-        userName = prompt("Hello, user. Please give me your name");
+// console.log(footer);
 
-        greetUser();
-    } 
-    else {
-        //else only called in the event we have the username (a non-empty string)
-        //alert("Hello, " + userName);
-        //instead of alert, make greeting appear in h1
-        //object.key.value
-        //title.textContent = "Hello, " + userName;
-        //title.textContent = title.textContent + ', ' + userName;
-        // title.textContent += ', ' + userName;
-        title.textContent += `, ${userName}`;
-    }
-};
 
-greetUser();
