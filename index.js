@@ -10,7 +10,7 @@ import Navigation from "./src/Navigation";
 // document.body.innerHTML += footer;
 // or use template literal
 
-// document.body.innterHTML 
+// document.body.innerHTML 
 document.querySelector('#root').innerHTML = `
     ${Navigation}
     ${Header}
@@ -18,6 +18,5 @@ document.querySelector('#root').innerHTML = `
     ${Footer}
 `;
 
-// console.log(footer);
 
 
