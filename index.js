@@ -17,7 +17,8 @@ var greetUser = function greetUser() {
         //object.key.value
         //title.textContent = "Hello, " + userName;
         //title.textContent = title.textContent + ', ' + userName;
-        title.textContent += ', ' + userName;
+        // title.textContent += ', ' + userName;
+        title.textContent += `, ${userName}`;
     }
 };
 
