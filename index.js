@@ -4,6 +4,11 @@ import Header from "./src/Header";
 import Navigation from "./src/Navigation";
 import greetUser from "./src/Greeting";
 
+// pass state through as a part of invoking Header as a function
+var state = {
+    'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio'
+};
+
 
 // override the html with the footer
 // this line only produces the footer
@@ -15,7 +20,7 @@ import greetUser from "./src/Greeting";
 // document.body.innterHTML 
 document.querySelector('#root').innerHTML = `
     ${Navigation()}
-    ${Header()}
+    ${Header(state)}
     ${Content()}
     ${Footer()}
 `;
