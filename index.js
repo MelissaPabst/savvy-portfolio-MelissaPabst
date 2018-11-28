@@ -14,10 +14,10 @@ import greetUser from "./src/Greeting";
 
 // document.body.innterHTML 
 document.querySelector('#root').innerHTML = `
-    ${Navigation}
-    ${Header}
-    ${Content}
-    ${Footer}
+    ${Navigation()}
+    ${Header()}
+    ${Content()}
+    ${Footer()}
 `;
 
 greetUser();
