@@ -19,10 +19,10 @@ var state = {
 
 // document.body.innterHTML 
 document.querySelector('#root').innerHTML = `
-    ${Navigation()}
+    ${Navigation(state)}
     ${Header(state)}
-    ${Content()}
-    ${Footer()}
+    ${Content(state)}
+    ${Footer(state)}
 `;
 
 greetUser();
