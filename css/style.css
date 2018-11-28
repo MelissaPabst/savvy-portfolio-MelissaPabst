@@ -1,4 +1,4 @@
-root {
+#root {
     background-color: burlywood;
     display: grid;
     min-height: 100vh;
@@ -150,7 +150,7 @@ select {
 }
 
 @media (min-width: 750px) {
-    root {
+    #root {
         grid-template-columns: 15% auto;
         grid-template-rows: min-content auto min-content;
         grid-template-areas:

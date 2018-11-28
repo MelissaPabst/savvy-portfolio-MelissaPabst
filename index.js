@@ -2,6 +2,8 @@ import Footer from "./src/Footer";
 import Content from "./src/Content";
 import Header from "./src/Header";
 import Navigation from "./src/Navigation";
+import greetUser from "./src/Greeting";
+
 
 // override the html with the footer
 // this line only produces the footer
@@ -10,7 +12,7 @@ import Navigation from "./src/Navigation";
 // document.body.innerHTML += footer;
 // or use template literal
 
-// document.body.innerHTML 
+// document.body.innterHTML 
 document.querySelector('#root').innerHTML = `
     ${Navigation}
     ${Header}
@@ -18,5 +20,4 @@ document.querySelector('#root').innerHTML = `
     ${Footer}
 `;
 
-
-
+greetUser();
