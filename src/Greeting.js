@@ -20,7 +20,7 @@ export default function greetUser() {
         //title.textContent = title.textContent + ', ' + userName;
         // title.textContent += ', ' + userName;
         title.textContent += `, ${userName}`;
-        //  OR title.innerHTML += `, <em>${userName}</em>`;
+        // title.innerHTML += `, <em>${userName}</em>`;
     }
 };
 // remember to invoke greetUser() in index.js

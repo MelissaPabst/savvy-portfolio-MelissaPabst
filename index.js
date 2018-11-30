@@ -5,21 +5,27 @@ import Navigation from "./src/Navigation";
 import greetUser from "./src/Greeting";
 
 
-var links;
+
 // pass state through as a part of invoking Header as a function
-var state = {
-    'active': 'home',
-    'home': {
+var State = {
+    // when I handle navigation, i will rerender the application with the new state
+    // homework... 'links': ['blog', 'contact', 'project']
+    'active': 'Home',
+    'Home': {
         'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio'
     },
-    'blog': {
+    'Blog': {
         'title': 'Please Read My Blog'
     },
-    'contact': {
+    'Contact': {
         'title': 'How to reach me'
+    },
+    'Projects': {
+        'title': 'My stuffs'
     }    
 };
 
+var root = document.querySelector('#root');
 
 // override the html with the footer
 // this line only produces the footer
@@ -29,38 +35,64 @@ var state = {
 // or use template literal
 
 // document.body.innterHTML 
-document.querySelector('#root').innerHTML = `
-    ${Navigation(state)}
-    ${Header(state)}
-    ${Content(state)}
-    ${Footer(state)}
-`;
+// this part renders the application
+// refactor into a function
+// document.querySelector('#root').innerHTML = `
+//     ${Navigation(state)}
+//     ${Header(state)}
+//     ${Content(state)}
+//     ${Footer(state)}
+// `;
 
-// invokes our greetUser from Greeting
-greetUser();
-
-
-links = document.querySelectorAll('#navigation a')
-// Refactor the below function
-// put var links above
+//prevents load of our page and loggin of textcontent to console
 function handleNavigation(event){
     event.preventDefault();
-    console.log(event.target.textContent);
+    // console.log(event.target.textContent);
+    // we want it to render our application
+    // the state should have an active property of our textContent 
+    State.active = event.target.textContent;
+    render(State); // eslint-disable-line
 }
-// var links = document.querySelectorAll('#navigation a')
 
-links[0].addEventListener(
-    'click',
-    handleNavigation
-);
-links[1].addEventListener(
-    'click',
-    handleNavigation
-);
-links[2].addEventListener(
-    'click',
-    handleNavigation
-);
+function render(state){
+    var links; 
+
+    root.innerHTML = `
+        ${Navigation(state)}
+        ${Header(state)}
+        ${Content(state)}
+        ${Footer(state)}
+    `;
+
+// invokes our greetUser from Greeting
+    greetUser();
+
+    
+    links = document.querySelectorAll('#navigation a');
+    // Refactor the below function
+    // put var links above
+    // function handleNavigation(event){
+    //     event.preventDefault();
+    //     console.log(event.target.textContent);
+    // }
+    // var links = document.querySelectorAll('#navigation a')
+
+    links[0].addEventListener(
+        'click',
+        handleNavigation
+    );
+    links[1].addEventListener(
+        'click',
+        handleNavigation
+    );
+    links[2].addEventListener(
+        'click',
+        handleNavigation
+    );
+}
+
+render(State);  
+
 
 // NOOP function example
 // document
