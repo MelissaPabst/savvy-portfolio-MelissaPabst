@@ -25,4 +25,53 @@ document.querySelector('#root').innerHTML = `
     ${Footer(state)}
 `;
 
+// invokes our greetUser from Greeting
 greetUser();
+
+
+// NOOP function example
+// document
+//     .querySelector('h1')
+//     .addEventListener(
+//         'click', 
+//         () => {} 
+//     )
+
+//log textContent of title on click 
+// returns the h1 tag and its contents
+document
+    .querySelector('h1')
+    .addEventListener(
+        'click', 
+        (event) => console.log(event.target) 
+    );
+// returns the text only
+document
+    .querySelector('h1')
+    .addEventListener(
+        'click', 
+        (event) => console.log(event.target.textContent) 
+);
+
+// Try it for an anchor tag. Should log "blog". Above functions for h1 stop working. 
+// Remember to preserve the log in your console so you see the log before the new page loads. 
+document
+        .querySelector('a')
+        .addEventListener(
+            'click',
+            (event) => console.log(event.target.textContent)
+);
+
+// this logs the text content of the first anchor tag
+// need to evoke a function on event
+// allows you to log content of anchor tag to screen when clicked but doens't actuall fire
+document
+        .querySelector('a')
+        .addEventListener(
+            'click',
+            (event) => {
+                event.preventDefault();
+                console.log(event.target.textContent);
+
+            }
+);
