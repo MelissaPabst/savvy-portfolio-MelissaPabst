@@ -8,6 +8,7 @@ import greetUser from "./src/Greeting";
 var links;
 // pass state through as a part of invoking Header as a function
 var state = {
+    'active': 'home',
     'home': {
         'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio'
     },
