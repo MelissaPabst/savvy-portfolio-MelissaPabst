@@ -30,7 +30,6 @@ function handleNavigation(event) {
 }
 
 function render(state) {
-    var i = 0;      // used in our while loop
     var links;
 
     root.innerHTML = `
@@ -44,7 +43,7 @@ function render(state) {
 
     links = document.querySelectorAll('#navigation a');
 
-    for(var i = 0; i < links.length; i++){
+    for(let i = 0; i < links.length; i++){
         links[i].addEventListener(
             'click', 
             handleNavigation
