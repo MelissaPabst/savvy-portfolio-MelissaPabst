@@ -5,19 +5,22 @@ import Navigation from "./src/Navigation";
 import greetUser from "./src/Greeting";
 
 var State = {
-    // homework... 'links': ['blog', 'contact', 'project']
     'active': 'Home',
     'Home': {
-        'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio'
+        'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio',
+        'links': ['Blog', 'Contact', 'Projects']
     },
     'Blog': {
-        'title': 'Please Read My Blog'
+        'title': 'Please Read My Blog',
+        'links': ['Home', 'Contact', 'Projects']
     },
     'Contact': {
-        'title': 'How to reach me'
+        'title': 'How to reach me',
+        'links': ['Home', 'Blog', 'Projects']
     },
     'Projects': {
-        'title': 'My stuffs'
+        'title': 'My stuffs',
+        'links': ['Home', 'Blog', 'Contact']
     }
 };
 

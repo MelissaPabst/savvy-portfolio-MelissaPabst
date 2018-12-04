@@ -1,21 +1,26 @@
-export default function Navigation(){
+export default function Navigation(state){
+    var links = state[state.active].links;  // links is an array of strings!
+    var list = ''
+
+
+    // Homework: single responsibility principle. 
+    for(let i = 0; i < links.length; i++){
+        // console.log(links[i]); for funsies!
+        list += `
+            <li>
+                <a href="#">${links[i]}</a>
+            </li>
+        `;
+
+        // console.log(link); for funsies!
+    }
+
+    // console.log(list)
+
     return `
         <div id="navigation">
             <ul class="container">
-                <li>
-                    <a href="./blog/">Blog</a>
-                </li>
-                <li>
-                    <a href="./contact/">Contact</a>
-                </li>
-                <li>
-                    <a href="./projects/">Projects</a>
-                    <ul class="dropdown">
-                        <li><a href="">first</a></li>
-                        <li><a href="">second</a></li>
-                        <li><a href="">third</a></li>
-                    </ul>
-                </li>
+                ${list}
             </ul>
         </div>
     `;
