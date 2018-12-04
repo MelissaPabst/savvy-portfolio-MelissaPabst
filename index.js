@@ -18,19 +18,20 @@ var State = {
     },
     'Projects': {
         'title': 'My stuffs'
-    }    
+    }
 };
 
 var root = document.querySelector('#root');
 
-function handleNavigation(event){
+function handleNavigation(event) {
     event.preventDefault();
     State.active = event.target.textContent;
     render(State); // eslint-disable-line
 }
 
-function render(state){
-    var links; 
+function render(state) {
+    var i = 0;      // used in our while loop
+    var links;
 
     root.innerHTML = `
         ${Navigation(state)}
@@ -41,21 +42,29 @@ function render(state){
 
     greetUser();
 
-    
     links = document.querySelectorAll('#navigation a');
 
-    links[0].addEventListener(
-        'click',
-        handleNavigation
-    );
-    links[1].addEventListener(
-        'click',
-        handleNavigation
-    );
-    links[2].addEventListener(
-        'click',
-        handleNavigation
-    );
+    while(i < links.length){
+        links[i].addEventListener(
+            'click', 
+            handleNavigation
+        );
+        
+        i++;
+    }
+
+    // links[0].addEventListener(
+    //     'click',
+    //     handleNavigation
+    // );
+    // links[1].addEventListener(
+    //     'click',
+    //     handleNavigation
+    // );
+    // links[2].addEventListener(
+    //     'click',
+    //     handleNavigation
+    // );
 }
 
 render(State);  
