@@ -38,19 +38,18 @@ function render(state) {
         ${Header(state)}
         ${Content(state)}
         ${Footer(state)}
-    `;
+    `; 
 
     greetUser();
 
     links = document.querySelectorAll('#navigation a');
 
-    while(i < links.length){
+    for(var i = 0; i < links.length; i++){
         links[i].addEventListener(
             'click', 
             handleNavigation
         );
-        
-        i++;
+
     }
 
     // links[0].addEventListener(
