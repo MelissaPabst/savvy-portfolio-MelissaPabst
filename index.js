@@ -1,38 +1,38 @@
-import Footer from "./src/Footer";
-import Content from "./src/Content";
-import Header from "./src/Header";
-import Navigation from "./src/Navigation";
-import greetUser from "./src/Greeting";
+import Footer from './src/Footer';
+import Content from './src/Content';
+import Header from './src/Header';
+import Navigation from './src/Navigation';
+import greetUser from './src/Greeting';
 
 var State = {
     'active': 'Home',
     'Home': {
         'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio',
-        'links': ['Blog', 'Contact', 'Projects']
+        'links': [ 'Blog', 'Contact', 'Projects' ]
     },
     'Blog': {
         'title': 'Please Read My Blog',
-        'links': ['Home', 'Contact', 'Projects']
+        'links': [ 'Home', 'Contact', 'Projects' ]
     },
     'Contact': {
         'title': 'How to reach me',
-        'links': ['Home', 'Blog', 'Projects']
+        'links': [ 'Home', 'Blog', 'Projects' ]
     },
     'Projects': {
         'title': 'My stuffs',
-        'links': ['Home', 'Blog', 'Contact']
+        'links': [ 'Home', 'Blog', 'Contact' ]
     }
 };
 
 var root = document.querySelector('#root');
 
-function handleNavigation(event) {
+function handleNavigation(event){
     event.preventDefault();
     State.active = event.target.textContent;
     render(State); // eslint-disable-line
 }
 
-function render(state) {
+function render(state){
     var links;
 
     root.innerHTML = `
@@ -40,7 +40,7 @@ function render(state) {
         ${Header(state)}
         ${Content(state)}
         ${Footer(state)}
-    `; 
+    `;
 
     greetUser();
 
@@ -48,10 +48,9 @@ function render(state) {
 
     for(let i = 0; i < links.length; i++){
         links[i].addEventListener(
-            'click', 
+            'click',
             handleNavigation
         );
-
     }
 
     // links[0].addEventListener(
@@ -68,4 +67,4 @@ function render(state) {
     // );
 }
 
-render(State);  
+render(State);

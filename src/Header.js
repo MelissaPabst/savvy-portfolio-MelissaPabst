@@ -1,4 +1,4 @@
-export default function Header(state) {
+export default function Header(state){
     return `
         <div id="header">
             <div class="container">
