@@ -3,6 +3,10 @@ import Content from './src/Content';
 import Header from './src/Header';
 import Navigation from './src/Navigation';
 import greetUser from './src/Greeting';
+import Navigo from 'navigo';
+
+var router = new Navigo;
+// console.log(router);
 
 var State = {
     'active': 'Home',
@@ -68,3 +72,7 @@ function render(state){
 }
 
 render(State);
+
+router
+    .on('/blog', console.log)
+    .resolve()
