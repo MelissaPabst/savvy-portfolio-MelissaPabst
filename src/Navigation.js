@@ -6,7 +6,7 @@ function buildLinks(links){
     var link = '';
     
     for(let i = 0; i < links.length; i++){
-        if(links[i] !== 'home'){
+        if(links[i] !== 'Home'){
             link = links[i];
         }
         list += `

@@ -4,6 +4,7 @@ import Header from './src/Header';
 import Navigation from './src/Navigation';
 import greetUser from './src/Greeting';
 import Navigo from 'navigo';
+import { capitalize } from 'lodash';
 
 var router = new Navigo(window.location.origin);
 // console.log(router);
@@ -31,7 +32,7 @@ var State = {
 var root = document.querySelector('#root');
 
 function handleNavigation(params){
-    State.active = params.page; // sets active state to "blog" or whatever page
+    State.active = capitalize(params.page); // sets active state to "blog" or whatever page
     // console.log(params.page); // returns "blog" or whatever page
     // we removed event and replaced it with params
     // event.preventDefault();
