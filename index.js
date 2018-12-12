@@ -5,7 +5,7 @@ import Navigation from './src/Navigation';
 import greetUser from './src/Greeting';
 import Navigo from 'navigo';
 
-var router = new Navigo;
+var router = new Navigo(window.location.origin);
 // console.log(router);
 
 var State = {
@@ -30,15 +30,16 @@ var State = {
 
 var root = document.querySelector('#root');
 
-function handleNavigation(event){
-    event.preventDefault();
-    State.active = event.target.textContent;
+function handleNavigation(params){
+    State.active = params.page; // sets active state to "blog" or whatever page
+    // console.log(params.page); // returns "blog" or whatever page
+    // we removed event and replaced it with params
+    // event.preventDefault();
+    // State.active = event.target.textContent;
     render(State); // eslint-disable-line
 }
 
 function render(state){
-    var links;
-
     root.innerHTML = `
         ${Navigation(state)}
         ${Header(state)}
@@ -48,31 +49,24 @@ function render(state){
 
     greetUser();
 
-    links = document.querySelectorAll('#navigation a');
+    // links = document.querySelectorAll('#navigation a');
 
-    for(let i = 0; i < links.length; i++){
-        links[i].addEventListener(
-            'click',
-            handleNavigation
-        );
-    }
+    // for(let i = 0; i < links.length; i++){
+    //     links[i].addEventListener(
+    //         'click',
+    //         handleNavigation
+    //     );
+    // }
 
-    // links[0].addEventListener(
-    //     'click',
-    //     handleNavigation
-    // );
-    // links[1].addEventListener(
-    //     'click',
-    //     handleNavigation
-    // );
-    // links[2].addEventListener(
-    //     'click',
-    //     handleNavigation
-    // );
+    // replace links
+    router.updatePageLinks();
 }
 
-render(State);
+// render(State); WHHHHHYYYYYYYYYY
 
 router
-    .on('/blog', console.log)
-    .resolve()
+    .on('/:page', handleNavigation)
+    .on('/', () => handleNavigation({ 'page': 'home' }))
+    .resolve();
+
+// .resolve is required at the end of router
