@@ -9,7 +9,7 @@ function buildLink(link){
 
     return `
         <li>
-            <a href="/${href}" data-navigo>
+            <a href="/${lowerCase(href)}" data-navigo>
                 ${link}
             </a>
         </li>   
