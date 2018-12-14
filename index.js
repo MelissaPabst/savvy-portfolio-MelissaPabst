@@ -10,6 +10,7 @@ var router = new Navigo(window.location.origin);
 // console.log(router);
 
 var State = {
+    'posts' : [],
     'active': 'Home',
     'Home': {
         'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio',
@@ -71,3 +72,32 @@ router
     .resolve();
 
 // .resolve is required at the end of router
+
+// add posts to state
+fetch('http://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((posts) => {
+        State.posts = posts;
+
+        render(State);
+    });
+
+
+
+//logs posts we got from jsonplaceholder to console
+fetch('http://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((posts) => posts.forEach((post) => console.log(post.title)));
+
+//logs even (by id) posts we got from jsonplaceholder to console
+fetch('http://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((posts) => posts.forEach((post) => {
+        if(post.id % 2 === 0){
+            console.log(post.title);
+        }
+    }));
+
+// guard pattern or guard clause (replace above if state)
+// !post.id % 2 && console.log(post.title)
+
