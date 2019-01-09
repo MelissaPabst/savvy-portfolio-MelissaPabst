@@ -11,10 +11,12 @@ import { capitalize } from 'lodash';
 var router = new Navigo(window.location.origin);
 var root = document.querySelector('#root');
 
-// console.log(router);
-
+// Global state object
+// 'Posts' pulled down from AJAX, axios
+// 'Active' property of state: string that represents what page we're on
+// 'Home, Blog, Contact, Projects': pages that could be active
 var State = {
-    'Posts' : [],
+    'Posts' : [], 
     'Active': 'Home',
     'Home': {
         'title': 'Bienvenidos a mi proyecto de Savvy Coders Portfolio',
@@ -34,15 +36,18 @@ var State = {
     }
 };
 
+// build store from store.js, pass in State
 var store = new Store(State);
 
-
 function handleNavigation(params){
+    // anon function takes in state and returns result of state.active assigned to params.page
     store.dispatch((state) => {
         state.active = capitalize(params.page); // sets active state to "blog" or whatever page
+        
         return state; // eslint-disable-line
-    });
-    
+    });   
+
+    // render(store.state)
 }
 
 function render(state){
@@ -55,20 +60,9 @@ function render(state){
 
     greetUser();
 
-    // links = document.querySelectorAll('#navigation a');
-
-    // for(let i = 0; i < links.length; i++){
-    //     links[i].addEventListener(
-    //         'click',
-    //         handleNavigation
-    //     );
-    // }
-
-    // replace links
     router.updatePageLinks();
 }
 
-// render(State); WHHHHHYYYYYYYYYY
 store.addListener(render);
 
 router
@@ -81,29 +75,11 @@ router
 // add posts to state
 fetch('http://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
-    .then((posts) => store.dispatch((state) => {
-        state.posts = posts;
+    .then((posts) => {
+        store.dispatch((state) => {
+            state.posts = posts;
 
-        // render(State);
-        return state;
-    }));
-
-
-
-// //logs posts we got from jsonplaceholder to console
-// fetch('http://jsonplaceholder.typicode.com/posts')
-//     .then((response) => response.json())
-//     .then((posts) => posts.forEach((post) => console.log(post.title)));
-
-// //logs even (by id) posts we got from jsonplaceholder to console
-// fetch('http://jsonplaceholder.typicode.com/posts')
-//     .then((response) => response.json())
-//     .then((posts) => posts.forEach((post) => {
-//         if(post.id % 2 === 0){
-//             console.log(post.title);
-//         }
-//     }));
-
-// // guard pattern or guard clause (replace above if state)
-// // !post.id % 2 && console.log(post.title)
-
+            return state;
+    })
+    
+});
