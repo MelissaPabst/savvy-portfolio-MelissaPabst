@@ -6,6 +6,7 @@ import greetUser from './src/Greeting';
 import Store from './src/Store';
 import Navigo from 'navigo';
 import { capitalize } from 'lodash';
+import { html, render } from 'lit-html';
 
 
 var router = new Navigo(window.location.origin);
@@ -50,6 +51,11 @@ function handleNavigation(params){
     // render(store.state)
 }
 
+// renders the way our app looks depending on state
+// as written the page is rewritten with every render
+// needs to be faster, and we're doing too much
+// there's no way to persist event listeners between renders
+// innerHTML doesn't work in some browsers (compatibility issue)
 function render(state){
     root.innerHTML = `
         ${Navigation(state)}
