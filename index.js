@@ -51,25 +51,45 @@ function handleNavigation(params){
     // render(store.state)
 }
 
-// renders the way our app looks depending on state
-// as written the page is rewritten with every render
-// needs to be faster, and we're doing too much
-// there's no way to persist event listeners between renders
-// innerHTML doesn't work in some browsers (compatibility issue)
-function render(state){
-    root.innerHTML = `
+// component that contains the majority of our markup
+function App(state) {
+    return html`
         ${Navigation(state)}
         ${Header(state)}
         ${Content(state)}
         ${Footer(state)}
     `;
-
-    greetUser();
-
-    router.updatePageLinks();
 }
 
-store.addListener(render);
+// renders our app with that state
+function start(state) {
+    render(App(state), root);
+}
+
+
+
+// renders the way our app looks depending on state
+// as written the page is rewritten with every render
+// needs to be faster, and we're doing too much
+// there's no way to persist event listeners between renders
+// innerHTML doesn't work in some browsers (compatibility issue)
+// function render(state){
+//     root.innerHTML = `
+        // ${Navigation(state)}
+        // ${Header(state)}
+        // ${Content(state)}
+        // ${Footer(state)}
+//     `;
+
+//     greetUser();
+
+//     router.updatePageLinks();
+// }
+
+// store.addListener(render);
+store.addListener(start);
+store.addListener(() => router.updatePageLinks());
+
 
 router
     .on('/:page', handleNavigation)

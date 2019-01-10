@@ -1,5 +1,7 @@
+import { html } from 'lit-html';
+
 export default function Header(state){
-    return `
+    return html `
         <div id="header">
             <div class="container">
                 <!--access the title property of state with dot notation-->

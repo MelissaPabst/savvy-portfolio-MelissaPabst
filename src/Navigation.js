@@ -1,4 +1,5 @@
 import { lowerCase } from 'lodash';
+import { html } from 'lit-html';
 
 function buildLink(link){
     var href = '';
@@ -7,7 +8,8 @@ function buildLink(link){
         href = link;
     }
 
-    return `
+// declare template literal that is it now html
+    return html`
         <li>
             <a href="/${lowerCase(href)}" data-navigo>
                 ${link}
@@ -15,12 +17,14 @@ function buildLink(link){
         </li>   
     `;
 }
-    
+   
+// declare template literal that is it now html
+// remove join, lit-html will figure it out for us
 export default function Navigation(state){
-    return `
+    return html`
     <div id="navigation">
         <ul class="container">
-            ${state[state.active].links.map(buildLink).join('')}
+            ${state[state.active].links.map(buildLink)}
         </ul>
     </div>
     `;

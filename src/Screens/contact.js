@@ -1,5 +1,7 @@
+import { html } from 'lit-html';
+
 export default function Contact(){
-    return `
+    return html `
     <form action="https://formspree.io/melissapabst@gmail.com" method="POST">
     <input type="text" name="firstname" placeholder="First Name" required>
     <input type="text" name="lastname" placeholder="Last Name" required>
