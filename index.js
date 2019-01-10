@@ -2,7 +2,7 @@ import Footer from './src/Footer';
 import Content from './src/Content';
 import Header from './src/Header';
 import Navigation from './src/Navigation';
-import greetUser from './src/Greeting';
+// import greetUser from './src/Greeting';
 import Store from './src/Store';
 import Navigo from 'navigo';
 import { capitalize } from 'lodash';
@@ -97,6 +97,8 @@ router
     .resolve();
 
 // .resolve is required at the end of router
+
+router.updatePageLinks();
 
 // add posts to state
 fetch('http://jsonplaceholder.typicode.com/posts')
